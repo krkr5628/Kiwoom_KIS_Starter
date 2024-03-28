@@ -14,8 +14,8 @@ namespace WindowsFormsApp1
 {
     public partial class Auto_Run_Update : Form
     {
-        public string filepath_system = "C:\\Users\\krkr5\\OneDrive\\바탕 화면\\project\\password\\system_setting.txt";
-        public string filepath_run = "C:\\Users\\krkr5\\OneDrive\\바탕 화면\\project\\password\\system_setting.txt";
+        public string filepath_system = "C:\\Auto_Trade\\system_setting.txt";
+        public string filepath_run = "C:\\Auto_Trade\\Auto_Trade_Main\\Trade_Auto.exe";
         public bool auto_run;
         public string program_start;
         public string program_stop;
@@ -25,7 +25,7 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
 
-            file_load();
+            File_load();
 
             timer1.Start();
 
@@ -35,7 +35,7 @@ namespace WindowsFormsApp1
 
         }
 
-        private void file_load()
+        private void File_load()
         {
             StreamReader reader = new StreamReader(filepath_system);
 
@@ -56,7 +56,7 @@ namespace WindowsFormsApp1
             load_complete = true;
         }
 
-        private void timetimer(object sender, EventArgs e)
+        private void Timetimer(object sender, EventArgs e)
         {
             //시간표시
             Time_label.Text = DateTime.Now.ToString("yy MM-dd (ddd) HH:mm:ss");
@@ -105,9 +105,11 @@ namespace WindowsFormsApp1
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Title = "파일 저장 경로 지정하세요";
-            saveFileDialog.Filter = "텍스트 파일 (*.txt)|*.txt";
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Title = "파일 저장 경로 지정하세요",
+                Filter = "텍스트 파일 (*.txt)|*.txt"
+            };
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -120,6 +122,5 @@ namespace WindowsFormsApp1
                 System.IO.File.WriteAllText(filePath, textToSave);
             }
         }
-
     }
 }

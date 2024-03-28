@@ -60,7 +60,7 @@ namespace WindowsFormsApp1
             // 
             // timer1
             // 
-            this.timer1.Tick += new System.EventHandler(this.timetimer);
+            this.timer1.Tick += new System.EventHandler(this.Timetimer);
             // 
             // tableLayoutPanel1
             // 
@@ -224,7 +224,7 @@ namespace WindowsFormsApp1
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.Time_label);
             this.Name = "Auto_Run_Update";
-            this.Text = "Form3";
+            this.Text = "Auto_Trade_Starter";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
