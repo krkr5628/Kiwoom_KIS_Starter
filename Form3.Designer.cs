@@ -224,7 +224,7 @@ namespace WindowsFormsApp1
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.Time_label);
             this.Name = "Auto_Run_Update";
-            this.Text = "Auto_Trade_Starter";
+            this.Text = "Trade_Auto_Starter";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
