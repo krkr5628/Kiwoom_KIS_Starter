@@ -32,6 +32,7 @@ namespace WindowsFormsApp1
             //
             button1.Click += Button1_Click;
             button2.Click += Button2_Click;
+            button3.Click += Button3_Click;
 
         }
 
@@ -66,7 +67,8 @@ namespace WindowsFormsApp1
         }
 
         private bool isTradeAutoOpened = false;
-        
+
+
         private void Opeartion_Time()
         {
             //운영시간 확인
@@ -78,21 +80,15 @@ namespace WindowsFormsApp1
             if (!isTradeAutoOpened && t_now >= t_start && t_now <= t_end)
             {
                 isTradeAutoOpened = true;
+                WriteLog_System("메인 프로세스를 실행합니다.\n");
                 Process.Start(filepath_run);
                 label7.Text = "실행";
             }
             else if (isTradeAutoOpened && t_now > t_end)
             {
                 isTradeAutoOpened = false;
-                // 프로그램 실행
-                Process process = Process.Start(filepath_run);
-
-                // 프로그램이 실행되기를 대기
-                process.WaitForExit();
-
-                // 프로그램 강제 종료
-                process.Kill();
-
+                //
+                Button3_Click(null, EventArgs.Empty);
                 //
                 label7.Text = "종료";
             }
@@ -120,7 +116,54 @@ namespace WindowsFormsApp1
 
                 //파일에 텍스트 저장
                 System.IO.File.WriteAllText(filePath, textToSave);
+
+                WriteLog_System("파일이 저장되었습니다.\n");
             }
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            // 프로세스 목록에서 filepath_run에 해당하는 프로세스 찾기
+            Process[] processes = Process.GetProcessesByName(Path.GetFileNameWithoutExtension(filepath_run));
+
+            // 각 프로세스에 대해 종료 요청
+            foreach (Process process in processes)
+            {
+                try
+                {
+                    WriteLog_System("메인 프로세스를 종료합니다.\n");
+                    // 메인 창을 닫기 위해 요청
+                    if (process.CloseMainWindow())
+                    {
+                        // 창이 닫히는 시간을 기다림
+                        process.WaitForExit(10000); // 최대 10초 대기
+                        if (!process.HasExited)
+                        {
+                            // 여전히 종료되지 않은 경우 강제 종료
+                            WriteLog_System("메인 프로세스가 직접 종료하십시요.\n");
+                        }
+                        else
+                        {
+                            process.Close();
+                            WriteLog_System("메인 프로세스가 정상 종료되었습니다.\n");
+                        }
+                    }
+                    else
+                    {
+                        WriteLog_System("메인 프로세스를 찾을 수 없습니다.\n");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    WriteLog_System($"메인 프로세스 종료 오류 발생: {ex.Message}\n");
+                }
+            }
+        }
+
+        private void WriteLog_System(string message)
+        {
+            string time = DateTime.Now.ToString("HH:mm:ss");
+            richTextBox1.AppendText($@"{"[" + time + "] " + message}");
         }
     }
 }
