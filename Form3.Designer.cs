@@ -82,7 +82,7 @@ namespace WindowsFormsApp1
             this.tableLayoutPanel1.Controls.Add(this.label7, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.start_time, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(8, 68);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -97,7 +97,7 @@ namespace WindowsFormsApp1
             | System.Windows.Forms.AnchorStyles.Right)));
             this.end_time_text.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.end_time_text.Location = new System.Drawing.Point(125, 35);
-            this.end_time_text.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.end_time_text.Margin = new System.Windows.Forms.Padding(2);
             this.end_time_text.Name = "end_time_text";
             this.end_time_text.Size = new System.Drawing.Size(83, 23);
             this.end_time_text.TabIndex = 6;
@@ -126,7 +126,7 @@ namespace WindowsFormsApp1
             | System.Windows.Forms.AnchorStyles.Right)));
             this.start_time_text.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.start_time_text.Location = new System.Drawing.Point(40, 35);
-            this.start_time_text.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.start_time_text.Margin = new System.Windows.Forms.Padding(2);
             this.start_time_text.Name = "start_time_text";
             this.start_time_text.Size = new System.Drawing.Size(81, 23);
             this.start_time_text.TabIndex = 5;
@@ -199,7 +199,7 @@ namespace WindowsFormsApp1
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.checkBox1.Location = new System.Drawing.Point(8, 44);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(102, 16);
             this.checkBox1.TabIndex = 2;
@@ -214,9 +214,9 @@ namespace WindowsFormsApp1
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.BackColor = System.Drawing.SystemColors.Info;
             this.button1.Location = new System.Drawing.Point(2, 2);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 32);
+            this.button1.Size = new System.Drawing.Size(95, 32);
             this.button1.TabIndex = 3;
             this.button1.Text = "실행";
             this.button1.UseVisualStyleBackColor = false;
@@ -227,10 +227,10 @@ namespace WindowsFormsApp1
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.BackColor = System.Drawing.SystemColors.Info;
-            this.button2.Location = new System.Drawing.Point(198, 2);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Location = new System.Drawing.Point(200, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(97, 32);
+            this.button2.Size = new System.Drawing.Size(95, 32);
             this.button2.TabIndex = 4;
             this.button2.Text = "설정저장";
             this.button2.UseVisualStyleBackColor = false;
@@ -257,16 +257,17 @@ namespace WindowsFormsApp1
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button3.BackColor = System.Drawing.SystemColors.Info;
-            this.button3.Location = new System.Drawing.Point(100, 2);
+            this.button3.Location = new System.Drawing.Point(101, 2);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(94, 32);
+            this.button3.Size = new System.Drawing.Size(95, 32);
             this.button3.TabIndex = 5;
             this.button3.Text = "종료";
             this.button3.UseVisualStyleBackColor = false;
             // 
             // richTextBox1
             // 
+            this.richTextBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.richTextBox1.Font = new System.Drawing.Font("굴림", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.richTextBox1.Location = new System.Drawing.Point(8, 183);
             this.richTextBox1.Name = "richTextBox1";
@@ -285,7 +286,7 @@ namespace WindowsFormsApp1
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.Time_label);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Auto_Run_Update";
             this.Text = "Trade_Auto_Starter";
             this.tableLayoutPanel1.ResumeLayout(false);

@@ -14,8 +14,8 @@ namespace WindowsFormsApp1
 {
     public partial class Auto_Run_Update : Form
     {
-        public string filepath_system = "C:\\Auto_Trade\\system_setting.txt";
-        public string filepath_run = "C:\\Auto_Trade\\Auto_Trade_Main\\Trade_Auto.exe";
+        public string filepath_system = "C:\\Auto_Trade_Kiwoom\\system_setting.txt";
+        public string filepath_run = "C:\\Auto_Trade_Kiwoom\\Auto_Trade_Main\\Trade_Auto.exe";
         public bool auto_run;
         public string program_start;
         public string program_stop;
@@ -80,8 +80,9 @@ namespace WindowsFormsApp1
             if (!isTradeAutoOpened && t_now >= t_start && t_now <= t_end)
             {
                 isTradeAutoOpened = true;
-                WriteLog_System("메인 프로세스를 실행합니다.\n");
+
                 Process.Start(filepath_run);
+
                 label7.Text = "실행";
             }
             else if (isTradeAutoOpened && t_now > t_end)
@@ -96,7 +97,17 @@ namespace WindowsFormsApp1
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            Process.Start(filepath_run);
+            try
+            {
+                WriteLog_System("키움 프로세스를 실행합니다.\n");
+                Process.Start(filepath_run);
+                label7.Text = "실행";
+            }
+            catch (Exception ex)
+            {
+                WriteLog_System("키움 매매 프로그램을 올바른 위치에 설치해주세요.\n");
+                WriteLog_System("Error message: " + ex.Message + "\n");
+            }
         }
 
         private void Button2_Click(object sender, EventArgs e)
@@ -131,7 +142,7 @@ namespace WindowsFormsApp1
             {
                 try
                 {
-                    WriteLog_System("메인 프로세스를 종료합니다.\n");
+                    WriteLog_System("키움 프로세스를 종료합니다.\n");
                     // 메인 창을 닫기 위해 요청
                     if (process.CloseMainWindow())
                     {
@@ -140,22 +151,23 @@ namespace WindowsFormsApp1
                         if (!process.HasExited)
                         {
                             // 여전히 종료되지 않은 경우 강제 종료
-                            WriteLog_System("메인 프로세스가 직접 종료하십시요.\n");
+                            WriteLog_System("키움 프로세스가 직접 종료하십시요.\n");
                         }
                         else
                         {
                             process.Close();
-                            WriteLog_System("메인 프로세스가 정상 종료되었습니다.\n");
+                            WriteLog_System("키움 프로세스가 정상 종료되었습니다.\n");
+                            label7.Text = "종료";
                         }
                     }
                     else
                     {
-                        WriteLog_System("메인 프로세스를 찾을 수 없습니다.\n");
+                        WriteLog_System("키움 프로세스를 찾을 수 없습니다.\n");
                     }
                 }
                 catch (Exception ex)
                 {
-                    WriteLog_System($"메인 프로세스 종료 오류 발생: {ex.Message}\n");
+                    WriteLog_System($"키움 프로세스 종료 오류 발생: {ex.Message}\n");
                 }
             }
         }
