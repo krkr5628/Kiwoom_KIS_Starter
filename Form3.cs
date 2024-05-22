@@ -15,7 +15,7 @@ namespace WindowsFormsApp1
     public partial class Auto_Run_Update : Form
     {
         public string filepath_system = "C:\\Auto_Trade_Kiwoom\\system_setting.txt";
-        public string filepath_run = "C:\\Auto_Trade_Kiwoom\\Auto_Trade_Main\\Trade_Auto.exe";
+        public string filepath_run = "C:\\Auto_Trade_Kiwoom\\Auto_Trade_Kiwoom_Main\\Trade_Auto_Kiwoom.exe";
         public bool auto_run;
         public string program_start;
         public string program_stop;
@@ -81,7 +81,7 @@ namespace WindowsFormsApp1
             {
                 isTradeAutoOpened = true;
 
-                Process.Start(filepath_run);
+                Button1_Click(null, EventArgs.Empty);
 
                 label7.Text = "실행";
             }
